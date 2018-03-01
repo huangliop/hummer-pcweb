@@ -13,7 +13,7 @@ class PersistData {
     reaction(
       () => store[name],
       data => {
-        if (typeof data === 'undefined') {
+        if (typeof data !== 'undefined') {
           const type = typeof data;
           data =
             type === 'string' || type === 'number'
