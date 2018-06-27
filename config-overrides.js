@@ -1,4 +1,5 @@
 const { injectBabelPlugin } = require('react-app-rewired');
+const rewireEslint = require('react-app-rewire-eslint');
 
 module.exports = function override(config, env) {
     //decorator,要放最前面
@@ -46,5 +47,7 @@ module.exports = function override(config, env) {
         ]
       }
     );
+    
+    config = rewireEslint(config, env,()=>{return {configFile:"src/.eslintrc",fix:true}});
     return config;
   };
